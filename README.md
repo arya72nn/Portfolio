@@ -32,10 +32,8 @@ Open index.html in your browser
 
 
 
-🌐 Live Demo
+🌐 Live Demo:-  https://arya72nn.github.io/Portfolio/
 
-
-(Add GitHub Pages link here)
 
 👤 Author
 
