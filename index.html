@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aryan Verma | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  transition:.4s;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+  position:relative;
+}
+
+.hero h1{font-size:3.5rem;margin:15px 0 5px}
+.hero p{font-size:1.3rem;opacity:.9}
+
+.profile-img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #00eaff;
+  box-shadow:0 0 25px rgba(0,234,255,0.6);
+}
+
+/* FLOATING BACKGROUND */
+.bg-circle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(0,234,255,.15);
+  filter:blur(40px);
+  animation:float 8s infinite alternate;
+}
+.bg1{width:200px;height:200px;top:10%;left:15%}
+.bg2{width:300px;height:300px;bottom:15%;right:10%}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(40px)}
+}
+
+/* SCROLL */
+.scroll-down{
+  position:absolute;
+  bottom:20px;
+  font-size:1.4rem;
+  opacity:.8;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(10px)}
+}
+
+/* CONTAINER */
+.container{
+  width:90%;
+  max-width:900px;
+  margin:40px auto;
+}
+
+/* MAIN BUTTON */
+.btn-acc{
+  width:100%;
+  padding:18px;
+  margin-top:15px;
+  background:rgba(255,255,255,.15);
+  border:none;
+  border-radius:15px;
+  color:#fff;
+  font-size:1.1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn-acc:hover{
+  background:rgba(0,234,255,.25);
+  transform:scale(1.01);
+}
+
+/* PANEL */
+.panel{
+  display:none;
+  margin-top:10px;
+  padding:20px;
+  background:rgba(255,255,255,.08);
+  border-radius:15px;
+  line-height:1.7;
+}
+
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  padding:8px 16px;
+  margin:6px;
+  background:rgba(255,255,255,.25);
+  border-radius:20px;
+}
+
+/* PROJECT SECTION */
+.sub-btn{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  background:rgba(0,234,255,.25);
+  border:none;
+  border-radius:12px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  text-align:left;
+  transition:.3s;
+}
+.sub-btn:hover{
+  background:#00eaff;
+  color:#000;
+}
+
+.sub-panel{
+  display:none;
+  margin-top:10px;
+}
+
+/* PROJECT CARD */
+.project-card{
+  background:rgba(255,255,255,.15);
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:12px;
+  transition:.3s;
+}
+.project-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+
+.project-card a{
+  color:#00eaff;
+  font-weight:600;
+  text-decoration:none;
+}
+.project-card a:hover{text-decoration:underline}
+
+/* CONTACT ICONS */
+.icons{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+}
+.icons a{
+  width:65px;height:65px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  color:#00eaff;
+  font-size:1.8rem;
+  transition:.3s;
+}
+.icons a:hover{
+  background:#00eaff;
+  color:#000;
+  transform:scale(1.1);
+}
+
+/* LIGHT MODE */
+.light-mode{
+  background:#f4f6f8;
+  color:#111;
+}
+.light-mode .btn-acc{background:#e0e0e0;color:#111}
+.light-mode .panel{background:#ffffff;color:#111}
+.light-mode .skills span{background:#dcdcdc;color:#000}
+.light-mode .sub-btn{background:#cfd8dc;color:#111}
+.light-mode .project-card{background:#f1f1f1;color:#111}
+.light-mode .project-card a{color:#007c8a}
+.light-mode .icons a{background:#e0e0e0;color:#007c8a}
+
+/* TOGGLE */
+.toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#00eaff;
+  color:#000;
+  border:none;
+  border-radius:30px;
+  padding:10px 18px;
+  font-weight:600;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.8;
+}
+/* Additional CSS for Animations and 3D Effects */
+
+/* Keyframes for new animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotateGlow {
+  0% { box-shadow: 0 0 25px rgba(0,234,255,0.6); }
+  50% { box-shadow: 0 0 40px rgba(0,234,255,1); }
+  100% { box-shadow: 0 0 25px rgba(0,234,255,0.6); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Enhancements to existing classes */
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.hero {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.hero h1 {
+  animation: slideInFromLeft 1s ease-out 0.5s both;
+}
+
+.hero p {
+  animation: slideInFromRight 1s ease-out 1s both;
+}
+
+.profile-img {
+  animation: rotateGlow 4s infinite linear;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.container {
+  animation: fadeInUp 1.5s ease-out 1.5s both;
+}
+
+.btn-acc {
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-acc:hover {
+  transform: scale(1.01) rotateX(5deg);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.btn-acc:active {
+  transform: scale(0.98) rotateX(0deg);
+}
+
+.panel {
+  animation: slideDown 0.5s ease-out;
+  box-shadow: inset 0 0 10px rgba(0,234,255,0.1);
+}
+
+.skills span:hover {
+  transform: scale(1.1) rotateY(10deg);
+  box-shadow: 0 4px 12px rgba(0,234,255,0.5);
+}
+
+.sub-btn {
+  transform-style: preserve-3d;
+}
+
+.sub-btn:hover {
+  transform: scale(1.02) rotateX(5deg);
+}
+
+.sub-btn:active {
+  transform: scale(0.98) rotateX(0deg);
+}
+
+.sub-panel {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.project-card {
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-5px) rotateY(5deg);
+}
+
+.project-card a:hover {
+  color: #fff;
+}
+
+.icons a {
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.icons a:hover {
+  transform: scale(1.1) rotateY(15deg);
+  box-shadow: 0 8px 16px rgba(0,234,255,0.5);
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  animation: fadeInUp 1.5s ease-out 2s both;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0,234,255,0.1) 0%, transparent 70%);
+  animation: pulse 3s infinite;
+  z-index: -1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(0,234,255,0.5);
+  border-radius: 50%;
+  animation: floatParticle 10s infinite linear;
+}
+/* Make the About section more visually appealing */
+.panel p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-out;
+}
+
+.panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.panel li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  animation: slideInFromLeft 0.8s ease-out both;
+}
+
+.panel li:nth-child(1) { animation-delay: 0.2s; }
+.panel li:nth-child(2) { animation-delay: 0.4s; }
+.panel li:nth-child(3) { animation-delay: 0.6s; }
+.panel li:nth-child(4) { animation-delay: 0.8s; }
+
+.panel li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: #00eaff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.panel em {
+  display: block;
+  margin-top: 15px;
+  font-style: italic;
+  color: #00eaff;
+  animation: fadeIn 1s ease-out 1s both;
+}
+/* Responsive Contact Section Enhancements */
+.panel p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+  outline: 2px solid #00eaff;
+}
+
+.submit-btn {
+  padding: 12px;
+  background: #00eaff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #0099cc;
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .icons {
+    gap: 15px; /* Reduce gap on tablets */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center;
+  }
+  
+  .icons a {
+    width: 55px; /* Slightly smaller icons */
+    height: 55px;
+    font-size: 1.5rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem; /* Smaller text on mobile */
+  }
+  
+  .submit-btn {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .icons {
+    gap: 10px; /* Tighter gap on phones */
+  }
+  
+  .icons a {
+    width: 50px; /* Even smaller icons */
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  
+  .panel {
+    padding: 15px; /* Reduce padding on small screens */
+  }
+  
+  .contact-form {
+    gap: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleMode()">🌙 Mode</button>
+
+<div class="hero">
+  <div class="bg-circle bg1"></div>
+  <div class="bg-circle bg2"></div>
+  
+  <!-- Add the particles div here -->
+  <div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 8s;"></div>
+  </div>
+
+  <img src="professional2.png" class="profile-img">
+  <h1>Aryan Verma</h1>
+  <p> BCA Student | PSIT Kanpur</p>
+  <p>I am a 2nd year BCA student with strong programming skills in C, C++, Python and Web Development.</p>
+  <div class="scroll-down">⬇ Scroll</div>
+</div>
+
+<div class="container">
+
+<button class="btn-acc">👤 About Me</button>
+
+<div class="panel">
+  <p><strong>👋 Hello! I'm Aryan Verma,</strong> a passionate 2nd-year BCA student at PSIT Kanpur, specializing in programming and problem-solving.</p>
+  <ul>
+    <li>💻 <strong>Skills:</strong> Proficient in C, C++, Python, and web development (HTML, CSS).</li>
+    <li>🚀 <strong>Experience:</strong> Hands-on projects in software development, including CRUD systems and interactive apps.</li>
+    <li>📈 <strong>Growth:</strong> Continuously upskilling through certifications (e.g., Infosys, HackerRank) and coding platforms.</li>
+    <li>🌟 <strong>Passion:</strong> Building efficient solutions and exploring new technologies to create impactful software.</li>
+  </ul>
+  <p><em>"Code is poetry in motion – let's build something amazing together!"</em></p>
+</div>
+<button class="btn-acc">💻 Skills</button>
+<div class="panel skills">
+<span>C</span><span>C++</span><span>Python</span>
+<span>HTML</span><span>CSS</span><span>Web Development</span><span>Data Structure </span>
+</div>
+
+<button class="btn-acc">📜 Certifications & ⭐ Achievements</button>
+<div class="panel">
+<ul>
+<li>Python – Infosys Springboard</li>
+<li>Software Engineering – Infosys</li>
+<li>C# – HackerRank</li>
+<li>Python – HackerRank</li>
+<li>⭐ 2 Star Problem Solving</li>
+<li>⭐ 2 Star C language</li>
+
+</ul>
+</div>
+
+<button class="btn-acc">🚀 Projects</button>
+<div class="panel">
+
+<button class="sub-btn">🐍 Python Projects</button>
+<div class="sub-panel">
+  <div class="project-card">
+    <h4>Password Generator</h4>
+    <p>A Python program that generates strong and secure random passwords based on user-defined length.</p>
+  </div>
+
+  <div class="project-card">
+    <h4>Expense Tracker</h4>
+    <p>A Python-based application to track daily expenses, calculate total spending, and manage budgets.</p>
+  </div>
+
+  <div class="project-card">
+    <h4>Student Management System</h4>
+    <p>A CRUD-based Python project to manage student records such as name, roll number, marks, and attendance.</p>
+  </div>
+</div>
+
+<button class="sub-btn">⚙ C Projects</button>
+<div class="sub-panel">
+  
+<div class="project-card">
+    <h4>Snake Game</h4>
+    <p>A classic Snake Game developed in C using basic logic, loops, and console graphics.</p>
+  </div>
+</div>
+
+<button class="sub-btn">🌐 Web Development Projects</button>
+<div class="sub-panel">
+  <div class="project-card">
+    <h4>Digital Timer & Stopwatch</h4>
+    <p>A responsive web application using HTML, CSS, and JavaScript to measure time accurately.</p>
+    <a href=" https://arya72nn.github.io/Digital-timer-and-Stopwatch/">View Project</a>
+  </div>
+</div>
+
+<button class="sub-btn">💡 Mobile App Design</button>
+<div class="sub-panel">
+  <div class="project-card">
+    <h4>Food Delivery App – UI/UX Design</h4>
+    <p>
+      Designed a modern food delivery app home screen focusing on clean UI,
+      clear UX flow, and usability. Created using Figma as part of a UI/UX skill test.
+    </p>
+    <a href="https://www.figma.com/design/xIWemfuYEWCpsIowKH3gRZ/QuickEats-Home-Screen?node-id=0-1&t=GlJ73nrhEzM6lxzK-1" target="_blank">
+      View Project
+    </a>
+  </div>
+</div>
+
+
+</div>
+
+
+<!-- Updated Contact Section HTML (Replace the existing Contact button and panel) -->
+<button class="btn-acc">📞 Contact</button>
+<div class="panel">
+  <p>Get in touch with me through any of the platforms below:</p>
+  <div class="icons">
+    <a href="https://wa.me/919235162805" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.linkedin.com/in/aryan-verma-535a87324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:tashuverma1234gnms@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>Or send me a message directly:</p>
+  <!-- Replace the existing <form> in the Contact panel -->
+<form class="contact-form" action="https://formspree.io/f/xbdyagpp" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>
+</div>
+
+</div>
+
+<footer>© 2025 Aryan Verma | Portfolio</footer>
+
+<script>
+/* ================================
+   MAIN ACCORDION (Only one open)
+================================ */
+const accBtns = document.querySelectorAll(".btn-acc");
+
+accBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    accBtns.forEach(otherBtn => {
+      if (otherBtn !== btn) {
+        otherBtn.nextElementSibling.style.display = "none";
+      }
+    });
+
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+
+/* ================================
+   SUB ACCORDION (Projects section)
+================================ */
+const subBtns = document.querySelectorAll(".sub-btn");
+
+subBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    subBtns.forEach(otherBtn => {
+      if (otherBtn !== btn) {
+        otherBtn.nextElementSibling.style.display = "none";
+      }
+    });
+
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+
+/* ================================
+   DARK / LIGHT MODE
+================================ */
+function toggleMode(){
+  document.body.classList.toggle("light-mode");
+  document.querySelector(".toggle").textContent =
+    document.body.classList.contains("light-mode") ? "☀ Mode" : "🌙 Mode";
+}
+
+/* ================================
+   TYPING EFFECT (Hero Section)
+================================ */
+const heroText = document.querySelector('.hero p:last-of-type');
+if(heroText){
+  const text = heroText.textContent;
+  heroText.textContent = '';
+  let i = 0;
+
+  function typeWriter(){
+    if(i < text.length){
+      heroText.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 40);
+    }
+  }
+  setTimeout(typeWriter, 1200);
+}
+</script>
+
+</body>
+</html>
